@@ -1,18 +1,19 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import {Link} from "react-router-dom";
 
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Acasă', href: '#home' },
-    { name: 'Nunți', href: '#weddings' },
-    { name: 'Evenimente', href: '#events' },
-    { name: 'Majorate', href: '#comingofage' },
-    { name: 'Portrete', href: '#portraits' },
-    { name: 'Video & Dronă', href: '#videodrone' },
-    { name: 'Real Estate', href: '#realestate' },
+    { name: 'Acasă', href: '/' },
+    { name: 'Nunți', href: '/portfolio/nunti' },
+    { name: 'Evenimente', href: '/portfolio/evenimente' },
+    { name: 'Majorate', href: '/portfolio/majorate' },
+    { name: 'Portrete', href: '/portfolio/portrete' },
+    { name: 'Filmări cu Drona', href: '/portfolio/filmari_drona' },
+    { name: 'Imobiliare', href: '/portfolio/imobiliare' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -20,16 +21,18 @@ export default function Header() {
     <header className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
       <div className="md:max-w-[90%] w-full md:mx-10 px-5 ">
         <div className="flex justify-between gap-10 items-center md:max-w-[90%] w-full py-4">
-          <div className="flex items-center space-x-3">
-            <img src='/LogoVivid.JPG' width={70} height={70} alt='Logo' className='rounded-full ' />
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-amber-600 to-rose-500 bg-clip-text text-transparent">
-                Vivid Colors
-                </h1>
-                
-              <p className="text-xs text-gray-600 -mt-1">Studio</p>
+          <Link to={'/'} key={'home'}>
+            <div className="flex items-center space-x-3">
+                <img src='/LogoVivid.JPG' width={70} height={70} alt='Logo' className='rounded-full ' />
+              <div>
+                <h1 className="text-xl font-bold bg-gradient-to-r from-amber-600 to-rose-500 bg-clip-text text-transparent">
+                  Vivid Colors
+                  </h1>
+
+                <p className="text-xs text-gray-600 -mt-1">Studio</p>
+              </div>
             </div>
-          </div>
+          </Link>
 
           <nav className="hidden lg:flex space-x-8">
             {navItems.map((item) => (

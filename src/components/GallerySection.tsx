@@ -1,5 +1,6 @@
 import {Camera, Heart, Home, PartyPopper, Sparkles, Video} from 'lucide-react';
 import {getEventTypeImages} from "../utils/photoLoader.ts";
+import {Link} from "react-router-dom";
 
 interface GallerySectionProps {
   id: string;
@@ -22,9 +23,11 @@ export default function GallerySection({ id, title, subtitle, description, icon,
               {icon}
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-            {title}
-          </h2>
+          <Link to={`/portfolio/${id}`} key={`${id}`}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+              {title}
+            </h2>
+          </Link>
           <p className="text-xl text-amber-600 mb-4 font-medium">{subtitle}</p>
           <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
             {description}
@@ -104,3 +107,8 @@ export const galleryData = [
     gradient: 'from-green-500 to-emerald-600',
   },
 ];
+
+ export const galleryDataById = galleryData.reduce((acc, crt) => {
+   acc[crt.id] = crt;
+   return acc;
+}, {} as Record<string, GallerySectionProps>)
