@@ -1,4 +1,4 @@
-import { Camera, Facebook, Instagram, Mail, Phone, Youtube } from 'lucide-react';
+import {Facebook, Instagram, Mail, Phone, Youtube} from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ export default function Footer() {
                   Vivid Colors
                 </h3>
                 <p className="text-xs text-gray-400 -mt-1">Studio</p>
-              </div>  
+              </div>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
               Transformăm momente în amintiri eterne prin fotografie și videografie profesională.
