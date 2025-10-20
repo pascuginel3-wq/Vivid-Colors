@@ -2,7 +2,7 @@
 
 type FolderPath = `/src/assets/photos/${string}/${string}/${string}`;
 
-const allImages = import.meta.glob<{ default: string }>('/src/assets/photos/*/*/*', {
+const allImages: Record<string, {default: string}> = import.meta.glob<{ default: string }>('/src/assets/photos/*/*/*', {
     eager: true,
 }) as Record<FolderPath, { default: string }>;
 
@@ -12,23 +12,35 @@ export type PhotoEntry = {
     images: string[];
 };
 
-const photoMap = new Map<string, PhotoEntry>();
+const photoMap: Map<string, Map<string, PhotoEntry>> = new Map<string, Map<string, PhotoEntry>>();
 
 for (const path in allImages) {
     const segments = path.split('/');
     const type = segments[segments.length - 3];
     const event = segments[segments.length - 2];
-    const key = `${type}/${event}`;
 
-    if (!photoMap.has(key)) {
-        photoMap.set(key, { type, event, images: [] });
+    if (!photoMap.has(type)) {
+        photoMap.set(type, new Map());
+    }
+    if (!photoMap.get(type)!.has(event)) {
+        photoMap.get(type)!.set(event, { type, event, images: [] });
     }
 
-    photoMap.get(key)!.images.push(allImages[path].default);
+    photoMap.get(type)!.get(event)!.images.push(allImages[path].default);
 }
 
-export const getAllPhotoEntries = (): PhotoEntry[] => Array.from(photoMap.values());
+export const getAllPhotoEntries = (): PhotoEntry[] => Array.from(photoMap.values()).reduce((acc, crt) => ([
+    ...acc,
+    ...Array.from(crt.values())
+]), [] as PhotoEntry[]);
 
 export const getEventImages = (type: string, event: string): string[] => {
-    return photoMap.get(`${type}/${event}`)?.images ?? [];
+    return photoMap.get(type)?.get(event)?.images ?? [];
+};
+
+export const getEventTypeImages = (type: string): string[] => {
+    if (!photoMap.has(type)) {
+        return [];
+    }
+    return Array.from((photoMap.get(type) as Map<string, PhotoEntry>)?.values())[0]?.images ?? [];
 };

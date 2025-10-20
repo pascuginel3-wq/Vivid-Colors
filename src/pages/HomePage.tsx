@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { PhotoEntry } from '../utils/photoLoader';
+import {getEventTypeImages, PhotoEntry} from '../utils/photoLoader';
 import Hero from "../components/Hero.tsx";
 import Story from "../components/Story.tsx";
 import GallerySection, {galleryData} from "../components/GallerySection.tsx";
@@ -15,9 +15,11 @@ const HomePage: React.FC<Props> = ({ entries }) => {
         <div>
             <Hero />
             <Story />
-            {galleryData.map((gallery) => (
-                <GallerySection key={gallery.id} {...gallery} />
-            ))}
+            {galleryData
+                .filter((gallery) => getEventTypeImages(gallery.id).length)
+                .map((gallery) => (
+                    <GallerySection key={gallery.id} {...gallery} />
+                ))}
             <div className="grid">
                 {entries.map(({ type, event }) => (
                     <Link
@@ -25,7 +27,7 @@ const HomePage: React.FC<Props> = ({ entries }) => {
                         key={`${type}/${event}`}
                         className="folder-card"
                     >
-                        <h3>{event.replace(/-/g, ' ')}</h3>
+                        <h3>{event.replace(/_/g, ' ')}</h3>
                         <p>Type: {type}</p>
                     </Link>
                 ))}
