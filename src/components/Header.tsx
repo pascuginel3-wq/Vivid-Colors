@@ -1,20 +1,16 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import {Link} from "react-router-dom";
+import {galleryData} from "./GallerySection.tsx";
 
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Acasă', href: '/' },
-    { name: 'Nunți', href: '/portfolio/nunti' },
-    { name: 'Evenimente', href: '/portfolio/evenimente' },
-    { name: 'Majorate', href: '/portfolio/majorate' },
-    { name: 'Portrete', href: '/portfolio/portrete' },
-    { name: 'Filmări cu Drona', href: '/portfolio/filmari_drona' },
-    { name: 'Imobiliare', href: '/portfolio/imobiliare' },
-    { name: 'Contact', href: '#contact' },
+    { shortTitle: 'Acasă', href: '/' },
+      ...galleryData,
+    { shortTitle: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -37,11 +33,11 @@ export default function Header() {
           <nav className="hidden lg:flex space-x-8">
             {navItems.map((item) => (
               <a
-                key={item.name}
+                key={item.shortTitle}
                 href={item.href}
                 className="text-gray-700 hover:text-amber-600 transition-colors duration-200 font-medium"
               >
-                {item.name}
+                {item.shortTitle}
               </a>
             ))}
           </nav>
@@ -60,12 +56,12 @@ export default function Header() {
           <nav className="px-4 py-4 space-y-3">
             {navItems.map((item) => (
               <a
-                key={item.name}
+                key={item.shortTitle}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
                 className="block py-2 text-gray-700 hover:text-amber-600 transition-colors duration-200 font-medium"
               >
-                {item.name}
+                {item.shortTitle}
               </a>
             ))}
           </nav>

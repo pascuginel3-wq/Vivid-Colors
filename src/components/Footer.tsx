@@ -1,4 +1,5 @@
 import {Facebook, Instagram, Mail, Phone, Youtube} from 'lucide-react';
+import {galleryData} from "./GallerySection.tsx";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,12 +26,9 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Servicii</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#weddings" className="hover:text-amber-400 transition-colors">Nunți</a></li>
-              <li><a href="#events" className="hover:text-amber-400 transition-colors">Evenimente</a></li>
-              <li><a href="#comingofage" className="hover:text-amber-400 transition-colors">Majorate</a></li>
-              <li><a href="#portraits" className="hover:text-amber-400 transition-colors">Portrete</a></li>
-              <li><a href="#videodrone" className="hover:text-amber-400 transition-colors">Video & Dronă</a></li>
-              <li><a href="#realestate" className="hover:text-amber-400 transition-colors">Real Estate</a></li>
+              {galleryData.map((item) => (
+                <li><a href={item.href} className="hover:text-amber-400 transition-colors">{item.shortTitle}</a></li>
+              ))}
             </ul>
           </div>
 

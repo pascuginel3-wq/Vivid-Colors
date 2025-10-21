@@ -22,14 +22,14 @@ function App() {
                     .map((gallery) => (
                         <Route
                             key={`${gallery.id}`}
-                            path={`/portfolio/${gallery.id}`}
+                            path={`/portofoliu/${gallery.id}`}
                             element={<PortfolioEventTypePage type={gallery.id} />}
                         />
                     ))}
                 {photoEntries.map(({ type, event }) => (
                     <Route
                         key={`${type}/${event}`}
-                        path={`/portfolio/${type}/${event}`}
+                        path={`/portofoliu/${type}/${event}`}
                         element={<PortfolioEventPage type={type} event={event} />}
                     />
                 ))}

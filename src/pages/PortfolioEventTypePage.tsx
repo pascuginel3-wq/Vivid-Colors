@@ -17,7 +17,7 @@ const PortfolioEventTypePage: React.FC<Props> = ({ type }) => {
             </h2>
             {events.map((event, i) => (
                 <div key={i}>
-                    <Link to={`/portfolio/${type}/${event.event}`} key={`${type}/${event}`}>
+                    <Link to={`/portofoliu/${type}/${event.event}`} key={`${type}/${event}`}>
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
                             {event.event.replace(/_/g, ' ')}
                         </h2>

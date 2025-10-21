@@ -13,7 +13,7 @@ const PortfolioEventPage: React.FC<Props> = ({ type, event }) => {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link to={`/portfolio/${type}`} key={`${type}`}>
+            <Link to={`/portofoliu/${type}`} key={`${type}`}>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
                     {gallery.title}
                 </h2>

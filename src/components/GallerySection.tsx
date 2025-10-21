@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 interface GallerySectionProps {
   id: string;
   title: string;
+  shortTitle: string;
   subtitle: string;
   description: string;
   icon: React.ReactNode;
@@ -23,7 +24,7 @@ export default function GallerySection({ id, title, subtitle, description, icon,
               {icon}
             </div>
           </div>
-          <Link to={`/portfolio/${id}`} key={`${id}`}>
+          <Link to={`/portofoliu/${id}`} key={`${id}`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
               {title}
             </h2>
@@ -60,7 +61,9 @@ export default function GallerySection({ id, title, subtitle, description, icon,
 export const galleryData = [
   {
     id: 'nunti',
+    href: '/portofoliu/nunti',
     title: 'Nunți de Vis',
+    shortTitle: 'Nunți',
     subtitle: 'Unde două inimi devin una',
     description: 'Fiecare nuntă este o poveste unică de dragoste. Surprindem fiecare privire, fiecare zâmbet și fiecare lacrimă de fericire. De la pregătiri la primul dans, documentăm fiecare moment magic al zilei tale speciale.',
     icon: <Heart className="w-8 h-8" />,
@@ -68,7 +71,9 @@ export const galleryData = [
   },
   {
     id: 'evenimente',
+    href: '/portofoliu/evenimente',
     title: 'Evenimente & Petreceri',
+    shortTitle: 'Evenimente',
     subtitle: 'Energia momentului, capturată perfect',
     description: 'De la petreceri corporative la aniversări spectaculoase, capturăm atmosfera și energia fiecărui eveniment. Fotografiile noastre aduc la viață bucuria, râsetele și momentele spontane care fac fiecare petrecere memorabilă.',
     icon: <PartyPopper className="w-8 h-8" />,
@@ -76,7 +81,9 @@ export const galleryData = [
   },
   {
     id: 'majorate',
+    href: '/portofoliu/majorate',
     title: 'Majorate & Botezuri',
+    shortTitle: 'Majorate',
     subtitle: 'Momentele care definesc o viață',
     description: 'Tranziția către maturitate și începutul unei noi călătorii spirituale sunt momente de o importanță imensă. Capturăm eleganța, emoția și semnificația acestor evenimente speciale care marchează etape importante în viața unei persoane.',
     icon: <Sparkles className="w-8 h-8" />,
@@ -84,7 +91,9 @@ export const galleryData = [
   },
   {
     id: 'portrete',
+    href: '/portofoliu/portrete',
     title: 'Portrete Profesionale',
+    shortTitle: 'Portrete',
     subtitle: 'Esența ta, într-o imagine',
     description: 'Un portret profesional spune o poveste despre cine ești. Fie că ai nevoie de fotografii corporative, portrete artistice sau ședințe foto personale, aducem la lumină personalitatea și caracterul unic al fiecărei persoane.',
     icon: <Camera className="w-8 h-8" />,
@@ -92,7 +101,9 @@ export const galleryData = [
   },
   {
     id: 'filmari_drona',
+    href: '/portofoliu/filmari_drona',
     title: 'Filmări cu Drona',
+    shortTitle: 'Drona',
     subtitle: 'Perspective care îți taie răsuflarea',
     description: 'Combinăm videografia cinematică cu filmări aeriene spectaculoase pentru a crea conținut video care captivează și inspiră. De la clipuri promoționale la filme de nuntă, oferim o perspectivă completă asupra evenimentului tău.',
     icon: <Video className="w-8 h-8" />,
@@ -100,7 +111,9 @@ export const galleryData = [
   },
   {
     id: 'imobiliare',
+    href: '/portofoliu/imobiliare',
     title: 'Imobiliare',
+    shortTitle: 'Imobiliare',
     subtitle: 'Prezintă-ți proprietatea în cea mai bună lumină',
     description: 'Fotografia imobiliară profesională care vinde. Capturăm arhitectura, designul și atmosfera fiecărei proprietăți pentru a atrage potențiali cumpărători și a maximiza valoarea investiției tale.',
     icon: <Home className="w-8 h-8" />,
