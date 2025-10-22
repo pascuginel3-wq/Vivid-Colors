@@ -67,37 +67,34 @@ export default function ImageCarousel({ images, gradient }: ImageCarouselProps) 
             className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
             onClick={closeModal}
         >
-          <div
-              className="relative max-w-5xl w-full h-[80vh] flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()} // prevent closing when clicking image
+          <button
+              className="absolute top-4 right-4 text-white text-3xl"
+              onClick={closeModal}
           >
-            <button
-                className="absolute top-4 right-4 text-white text-3xl"
-                onClick={closeModal}
-            >
-              &times;
-            </button>
+            &times;
+          </button>
 
-            <button
-                className="absolute left-4 text-white text-4xl px-2"
-                onClick={prevImage}
-            >
-              ❮
-            </button>
+          <button
+              className="absolute left-4 text-white text-4xl px-2"
+              onClick={(e) => {e.stopPropagation(); prevImage()}}
+          >
+            ❮
+          </button>
 
-            <img
-                src={images[selectedImageIndex]}
-                alt={`Preview ${selectedImageIndex}`}
-                className="max-h-full max-w-full object-contain rounded-lg shadow-2xl"
-            />
+          <button
+              className="absolute right-4 text-white text-4xl px-2"
+              onClick={(e) => {e.stopPropagation(); nextImage()}}
+          >
+            ❯
+          </button>
 
-            <button
-                className="absolute right-4 text-white text-4xl px-2"
-                onClick={nextImage}
-            >
-              ❯
-            </button>
-          </div>
+          <img
+              src={images[selectedImageIndex]}
+              alt={`Preview ${selectedImageIndex}`}
+              className="h-[80vh] max-h-full max-w-full object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+          />
+
         </div>
       )}
     </>

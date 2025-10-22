@@ -27,7 +27,7 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Servicii</h4>
             <ul className="space-y-2 text-sm">
               {galleryData.map((item) => (
-                <li><a href={item.href} className="hover:text-amber-400 transition-colors">{item.shortTitle}</a></li>
+                <li key={item.id}><a href={item.href} className="hover:text-amber-400 transition-colors">{item.shortTitle}</a></li>
               ))}
             </ul>
           </div>

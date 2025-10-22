@@ -21,7 +21,7 @@ const PortfolioEventPage: React.FC<Props> = ({ type, event }) => {
                     </h2>
                 </Link>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
-                    &gt;
+                    ❯
                 </h2>
                 <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
                     {event.replace(/_/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())}
