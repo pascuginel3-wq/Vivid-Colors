@@ -182,7 +182,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-1">Telefon</h4>
-                    <p className="text-gray-400">+40 XXX XXX XXX</p>
+                    <p className="text-gray-400">+40 729 601 720</p>
                     <p className="text-gray-400">Luni - Duminică: 9:00 - 21:00</p>
                   </div>
                 </div>

@@ -19,7 +19,7 @@ export default function Hero() {
           <span className="text-white">merită să fie spusă</span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-gray-800 mb-12 max-w-3xl mx-auto leading-relaxed">
           De la prima privire la ultimul dans, transformăm momentele tale speciale în amintiri eterne.
           Fotografie profesională care surprinde emoția, nu doar imaginea.
         </p>
@@ -51,7 +51,7 @@ export default function Hero() {
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 to-rose-400 bg-clip-text text-transparent mb-2">
                 {stat.number}
               </div>
-              <div className="text-gray-400 text-sm">{stat.label}</div>
+              <div className="text-gray-300 text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
