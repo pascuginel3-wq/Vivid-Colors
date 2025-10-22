@@ -42,7 +42,7 @@ export const getEventTypeImages = (type: string): string[] => {
     if (!photoMap.has(type)) {
         return [];
     }
-    return Array.from((photoMap.get(type) as Map<string, PhotoEntry>)?.values())[0]?.images ?? [];
+    return Array.from((photoMap.get(type) as Map<string, PhotoEntry>)?.values()).map((entry) => entry.images[0]) ?? [];
 };
 
 export const getEventTypeEvents = (type: string): PhotoEntry[] => {
