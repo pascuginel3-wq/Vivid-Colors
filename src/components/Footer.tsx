@@ -50,7 +50,8 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Urmărește-ne</h4>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.instagram.com/vivid_colo_studio.ro/"
+                target="_blank"
                 className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gradient-to-r hover:from-amber-500 hover:to-rose-500 transition-all duration-300 transform hover:scale-110"
               >
                 <Instagram className="w-5 h-5" />
